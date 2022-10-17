@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Notification } from 'components/Notification/Notification';
 
 export class Feedback extends Component {
   // static defaultProps = {
@@ -72,7 +73,7 @@ export class Feedback extends Component {
 
         <div>
           <h2>Statistics</h2>
-          {total > 0 && (
+          {total > 0 ? (
             <ul>
               <li>Good: {good}</li>
               <li>Neutral: {neutral}</li>
@@ -80,6 +81,8 @@ export class Feedback extends Component {
               <li>Total: {total}</li>
               <li>Positive feedback: {positivePercentage}%</li>
             </ul>
+          ) : (
+            <Notification message="There is no feedback" />
           )}
         </div>
       </div>
