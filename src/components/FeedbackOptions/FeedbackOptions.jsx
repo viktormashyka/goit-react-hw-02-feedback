@@ -1,17 +1,32 @@
 import { FeedbackOptions } from '../FeedbackOptions/FeedbackOptions.styled';
 
-export const FeedbackOptionsBox = ({ options, onLeaveFeedback }) => {
+export const FeedbackOptionsBox = ({
+  options,
+  onLeaveFeedback,
+  selectedBtn,
+}) => {
   return (
     <FeedbackOptions>
-      <h1>Please leave feedback</h1>
-      <button type="button" onClick={this.countGoodFeedback}>
-        Good
+      <button
+        selected={selectedBtn === options.good}
+        type="button"
+        onClick={onLeaveFeedback(options.good)}
+      >
+        {options.good}
       </button>
-      <button type="button" onClick={this.countNeutralFeedback}>
-        Neutral
+      <button
+        selected={selectedBtn === options.neutral}
+        type="button"
+        onClick={onLeaveFeedback(options.neutral)}
+      >
+        {options.neutral}
       </button>
-      <button type="button" onClick={this.countBadFeedback}>
-        Bad
+      <button
+        selected={selectedBtn === options.bad}
+        type="button"
+        onClick={onLeaveFeedback(options.bad)}
+      >
+        {options.bad}
       </button>
     </FeedbackOptions>
   );
